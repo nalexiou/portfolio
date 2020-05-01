@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory'
 import App from './components/App';
 import Jokes from './components/Jokes';
@@ -9,11 +9,11 @@ import Header from './components/Header';
 import './index.css';
 
 ReactDOM.render(
-    <Router history={createBrowserHistory()}>
+    <BrowserRouter basename='/portfolio'  history={createBrowserHistory()}>
         <Switch>
-            <Route exact path='/portfolio' render={ () => <Header><App/></Header>}/>
-            <Route path='/portfolio/jokes'render={ () => <Header><Jokes/></Header>}/>
-            <Route path='/portfolio/music-master'render={ () => <Header><MusicMaster/></Header>}/>
+            <Route exact path='/' render={ () => <Header><App/></Header>}/>
+            <Route path='/jokes' render={ () => <Header><Jokes/></Header>}/>
+            <Route path='/music-master' render={ () => <Header><MusicMaster/></Header>}/>
         </Switch>
-    </Router>
+    </BrowserRouter>
     , document.getElementById('root'));
